@@ -9,20 +9,22 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final Widget initialWidget;
+
   const MyApp({Key? key, required this.initialWidget}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'AeroLink',
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: AppRoutes.generateRoute,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: initialWidget,
-    );
+    return Sizer(
+        builder: (context, orientation, deviceType) => MaterialApp(
+              title: 'AeroLink',
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: AppRoutes.generateRoute,
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
+              ),
+              home: initialWidget,
+            ));
   }
 }

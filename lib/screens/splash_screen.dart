@@ -18,10 +18,10 @@ class _SplashScreenState extends State<SplashScreen> {
     double screenHeight = AppDimensions.screenHeight(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF4852FF),
       body: SafeArea(
         child: Container(
-          color: Colors.black,
+          color: Color(0xFF4852FF),
           width: screenWidth,
           height: screenHeight,
           child: Column(
@@ -29,15 +29,24 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 155.sp,
-                height: 35.sp,
+                width: 80.sp,
+                height: 80.sp,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     //Se indica la imagen a utilizar, está declarado en el archivo LogoPaths.dart
-                    image: AssetImage(LogoPaths.defaultLogo),
+                    image: AssetImage(LogoPaths.figureLogo),
                     //Indicamos que la imagen rellene el contenedor
                     fit: BoxFit.fill,
                   ),
+                ),
+              ),
+              Padding(padding: EdgeInsets.only(top: 5.sp)),
+              Text(
+                  'AeroLink',
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white
                 ),
               ),
             ],
