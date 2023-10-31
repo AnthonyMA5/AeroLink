@@ -1,3 +1,4 @@
+import 'package:aerolink/resources/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -10,6 +11,18 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+
+    double screenWidth = AppDimensions.screenWidth(context);
+    double screenHeight = AppDimensions.screenHeight(context);
+
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: screenWidth,
+          height: screenHeight,
+          color: Colors.white,
+        ),
+      ),
+    );
   }
 }

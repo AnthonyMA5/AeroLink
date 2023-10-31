@@ -1,5 +1,6 @@
 import 'package:aerolink/resources/app_dimensions.dart';
 import 'package:aerolink/resources/logo_paths.dart';
+import 'package:aerolink/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -13,13 +14,14 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView>
     with SingleTickerProviderStateMixin {
+
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     Future.delayed(Duration(seconds: 3), () {
-      // Navegación
+      Navigator.pushNamedAndRemoveUntil(context, ROUTE_ONBOARDING, (route) => false);
     });
   }
 
@@ -36,6 +38,7 @@ class _SplashViewState extends State<SplashView>
     double screenHeight = AppDimensions.screenHeight(context);
 
     return Scaffold(
+      backgroundColor: Color(0xFF4852FF),
       body: SafeArea(
         child: Container(
           color: Color(0xFF4852FF),
