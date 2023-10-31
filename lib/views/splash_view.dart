@@ -1,24 +1,41 @@
 import 'package:aerolink/resources/app_dimensions.dart';
 import 'package:aerolink/resources/logo_paths.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen ({super.key});
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashViewState extends State<SplashView>
+    with SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+
+    Future.delayed(Duration(seconds: 3), () {
+      // Navegación
+    });
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: SystemUiOverlay.values);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-
     double screenWidth = AppDimensions.screenWidth(context);
     double screenHeight = AppDimensions.screenHeight(context);
 
     return Scaffold(
-      backgroundColor: Color(0xFF4852FF),
       body: SafeArea(
         child: Container(
           color: Color(0xFF4852FF),
@@ -31,28 +48,26 @@ class _SplashScreenState extends State<SplashScreen> {
               Container(
                 width: 80.sp,
                 height: 80.sp,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
-                    //Se indica la imagen a utilizar, está declarado en el archivo LogoPaths.dart
                     image: AssetImage(LogoPaths.figureLogo),
-                    //Indicamos que la imagen rellene el contenedor
                     fit: BoxFit.fill,
                   ),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: 5.sp)),
               Text(
-                  'AeroLink',
+                'AeroLink',
                 style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white
-                ),
+                    fontFamily: 'Poppins',
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white),
               ),
             ],
-          )
+          ),
         ),
-      )
+      ),
     );
   }
 }

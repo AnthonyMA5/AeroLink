@@ -1,10 +1,10 @@
 import 'package:aerolink/routes/app_routes.dart';
-import 'package:aerolink/screens/splash_screen.dart';
+import 'package:aerolink/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
-  runApp(const MyApp(initialWidget: SplashScreen()));
+  runApp(const MyApp(initialWidget: SplashView()));
 }
 
 class MyApp extends StatelessWidget {
