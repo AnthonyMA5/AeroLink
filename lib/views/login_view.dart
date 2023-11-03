@@ -1,4 +1,4 @@
-import 'package:aerolink/resources/app_dimensions.dart';
+import 'package:aerolink/constants/sizes/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
