@@ -1,5 +1,8 @@
-import 'package:aerolink/resources/app_dimensions.dart';
-import 'package:aerolink/resources/logo_paths.dart';
+import 'package:aerolink/constants/styles/app_colors.dart';
+import 'package:aerolink/constants/strings/image_strings.dart';
+import 'package:aerolink/constants/strings/text_strings.dart';
+import 'package:aerolink/constants/sizes/app_dimensions.dart';
+import 'package:aerolink/constants/styles/text_styles.dart';
 import 'package:aerolink/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +24,7 @@ class _SplashViewState extends State<SplashView>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushNamedAndRemoveUntil(context, ROUTE_ONBOARDING, (route) => false);
+      Navigator.pushNamedAndRemoveUntil(context, ROUTE_LOGIN, (route) => false);
     });
   }
 
@@ -34,14 +37,15 @@ class _SplashViewState extends State<SplashView>
 
   @override
   Widget build(BuildContext context) {
+
     double screenWidth = AppDimensions.screenWidth(context);
     double screenHeight = AppDimensions.screenHeight(context);
 
     return Scaffold(
-      backgroundColor: Color(0xFF4852FF),
+      backgroundColor: AppColors.primary,
       body: SafeArea(
         child: Container(
-          color: Color(0xFF4852FF),
+          color: AppColors.primary,
           width: screenWidth,
           height: screenHeight,
           child: Column(
@@ -53,19 +57,15 @@ class _SplashViewState extends State<SplashView>
                 height: 80.sp,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(LogoPaths.figureLogo),
+                    image: AssetImage(ImageStrings.figureAppLogo),
                     fit: BoxFit.fill,
                   ),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: 5.sp)),
               Text(
-                'AeroLink',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
+                TextString.appName,
+                style: AppTextStyles.whiteTitleText(context),
               ),
             ],
           ),
