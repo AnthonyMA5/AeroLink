@@ -5,4 +5,7 @@ class TextString {
   // Global texts
   static const String appName = "AeroLink";
 
+  // Login texts
+  static const String loginTitle = "Inicia sesión";
+
 }
