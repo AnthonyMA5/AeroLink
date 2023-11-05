@@ -21,7 +21,6 @@ class _SplashViewState extends State<SplashView>
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushNamedAndRemoveUntil(context, ROUTE_LOGIN, (route) => false);
